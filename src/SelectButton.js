@@ -34,25 +34,23 @@ export default function SelectButton({ selectedOption, onMemeSelect }) {
   }, [onMemeSelect]);
 
   return (
-    <label>
-      {' '}
-      Meme template:{' '}
-      <div
-        className="App"
-        style={{
-          fontSize: '15px',
-          padding: '5px 0',
-          margin: '10px 0',
-          width: '195px',
-          display: 'block',
-        }}
-      >
-        <Select
-          value={selectedOption}
-          options={options}
-          onChange={onMemeSelect}
-        />
-      </div>
-    </label>
+    <div
+      className="App"
+      style={{
+        fontSize: '15px',
+        padding: '5px 0',
+        margin: '10px 0',
+        width: '195px',
+        display: 'block',
+      }}
+    >
+      <label htmlFor="meme-select-input">Meme template</label>
+      <Select
+        inputId="meme-select-input"
+        value={selectedOption}
+        options={options}
+        onChange={onMemeSelect}
+      />
+    </div>
   );
 }
