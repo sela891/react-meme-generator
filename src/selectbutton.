@@ -1,0 +1,46 @@
+useEffect(() => {
+    async function getImgs() {
+      try {
+        setIsLoading(true);
+        const response = await axios.get('https://api.memegen.link/templates');
+
+        const fetchedOptions = response.data.map((meme) => ({
+          value: meme.blank,
+          label: meme.name,
+        }));
+
+        setOptions(fetchedOptions);
+        const doge = fetchedOptions.find((opt) =>
+          opt.label.toLowerCase().includes('doge'),
+        );
+
+        if (doge) {
+          setSelectedOption(doge);
+          props.onMemeSelect(doge);
+        }
+      } catch (err) {
+        console.error('Failed to fetch memes:', err);
+        setError('Oops! Could not load the memes.');
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+
+  <form onSubmit={handleFormSubmit}>
+            <label htmlFor="topText">Enter the top text here:</label>
+            <Input
+              value={topTextInput}
+              onChange={(event) => {
+                setTopTextInput(event.target.value);
+              }}
+            />
+            <label htmlFor="bottomTextInput">Enter the bottom text here:</label>
+            <Input
+              value={bottomTextInput}
+              onChange={(event) => {
+                setBottomTextInput(event.target.value);
+              }}
+            />
+            <button type="submit" style={{ display: 'none' }} />
+          </form>
