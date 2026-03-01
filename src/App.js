@@ -102,12 +102,16 @@ export default function App() {
             selectedOption={selectedOption}
             onMemeSelect={handleMemeSelect}
           />
+          <label htmlFor="top-text">Top Text</label>
           <Input
+            id="top-text"
             value={topTextInput}
             onChange={handleInputChange(setTopTextInput)}
           />
 
+          <label htmlFor="bottom-text">Bottom Text</label>
           <Input
+            id="bottom-text"
             value={bottomTextInput}
             onChange={handleInputChange(setBottomTextInput)}
           />
