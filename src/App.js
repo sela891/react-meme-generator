@@ -116,7 +116,7 @@ export default function App() {
             onChange={handleInputChange(setBottomTextInput)}
           />
 
-          <Button onClick={handleDownload}>Download Meme</Button>
+          <Button onClick={handleDownload}>Download</Button>
         </Col>
 
         <Col>
